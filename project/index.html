@@ -3,168 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Modern Login Page</title>
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #4a90e2 0%, #50e3c2 100%);
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
         }
-        .login-panel {
-            width: 360px;
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
+
+        body{
+            background:linear-gradient(135deg,#4a90e2,#50e3c2);
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            padding:40px 20px;
         }
-        .login-header {
-            padding: 32px;
-            background: #4a90e2;
-            color: #fff;
-            text-align: center;
+
+        /* Login Card */
+
+        .login-panel{
+            width:380px;
+            background:#fff;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 15px 35px rgba(0,0,0,.2);
+            margin-bottom:30px;
         }
-        .login-header h1 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: 0.02em;
+
+        .login-header{
+            background:#4a90e2;
+            color:white;
+            text-align:center;
+            padding:30px;
         }
-        .login-header p {
-            margin: 8px 0 0;
-            opacity: 0.85;
-            font-size: 14px;
+
+        .avatar{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            background:white;
+            color:#4a90e2;
+            font-size:40px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:auto;
+            margin-bottom:15px;
         }
-        .login-form {
-            padding: 28px 32px 32px;
+
+        .login-header h1{
+            margin-bottom:8px;
         }
-        .form-group {
-            margin-bottom: 18px;
+
+        .login-form{
+            padding:30px;
         }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 14px;
+
+        .form-group{
+            margin-bottom:20px;
         }
-        input {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid #dcdce3;
-            border-radius: 12px;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s ease;
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
         }
-        input:focus {
-            border-color: #4a90e2;
+
+        input,
+        textarea,
+        select{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:15px;
+            outline:none;
         }
-        .login-actions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
+
+        input:focus,
+        textarea:focus,
+        select:focus{
+            border-color:#4a90e2;
         }
-        .login-actions a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-size: 13px;
+
+        textarea{
+            resize:vertical;
         }
-        .login-button {
-            width: 100%;
-            padding: 14px 16px;
-            border: none;
-            border-radius: 12px;
-            background: #4a90e2;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease;
+
+        .login-actions{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:20px;
         }
-        .login-button:hover {
-            background: #3b78c6;
-            transform: translateY(-1px);
+
+        .login-actions label{
+            display:flex;
+            align-items:center;
+            gap:5px;
+            font-size:14px;
+            font-weight:normal;
         }
-        .footer-note {
-            margin-top: 14px;
-            text-align: center;
-            font-size: 13px;
-            color: #777;
+
+        .login-actions input{
+            width:auto;
         }
+
+        .login-actions a{
+            text-decoration:none;
+            color:#4a90e2;
+            font-size:14px;
+        }
+
+        .btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+            color:white;
+            transition:.3s;
+            margin-top:10px;
+        }
+
+        .login-btn{
+            background:#4a90e2;
+        }
+
+        .login-btn:hover{
+            background:#357bd8;
+        }
+
+        .google-btn{
+            background:#db4437;
+        }
+
+        .google-btn:hover{
+            background:#c13529;
+        }
+
+        .footer-note{
+            margin-top:15px;
+            text-align:center;
+            font-size:14px;
+        }
+
+        .footer-note a{
+            color:#4a90e2;
+            text-decoration:none;
+        }
+
+        /* Feedback */
+
+        .feedback-panel{
+            width:380px;
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 15px 35px rgba(0,0,0,.2);
+        }
+
+        .feedback-header{
+            background:#4a90e2;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .feedback-form{
+            padding:30px;
+        }
+
+        footer{
+            margin-top:30px;
+            color:white;
+            font-size:14px;
+        }
+
+        @media(max-width:450px){
+
+            .login-panel,
+            .feedback-panel{
+                width:95%;
+            }
+
+            .login-actions{
+                flex-direction:column;
+                align-items:flex-start;
+                gap:10px;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- Login Section -->
+    <!-- LOGIN SECTION -->
+
     <div class="login-panel">
+
         <div class="login-header">
-            <h1>Welcome Back Buddy</h1>
-            <p>Sign in to continue to your account</p>
+
+            <div class="avatar">
+                👤
+            </div>
+
+            <h1>Welcome Back!</h1>
+
+            <p>Login to continue to your account</p>
+
         </div>
 
         <form class="login-form">
 
             <div class="form-group">
+
                 <label>Email Address</label>
-                <input type="email" placeholder="you@example.com" required>
+
+                <input
+                    type="email"
+                    placeholder="📧 Enter your email"
+                    required>
+
             </div>
 
             <div class="form-group">
+
                 <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="🔒 Enter your password"
+                    required>
+
             </div>
 
             <div class="login-actions">
+
                 <label>
-                    <input type="checkbox">
-                    Remember Me
+
+                    <input
+                        type="checkbox"
+                        onclick="document.getElementById('password').type=this.checked?'text':'password'">
+
+                    Show Password
+
                 </label>
 
                 <a href="#">Forgot Password?</a>
+
             </div>
 
-            <button class="login-button">Log In</button>
+            <button class="btn login-btn">
+                Login
+            </button>
+
+            <button
+                type="button"
+                class="btn google-btn">
+
+                Login with Google
+
+            </button>
 
             <p class="footer-note">
-                New here?
-                <a href="#">Create an account</a>
+
+                Don't have an account?
+
+                <a href="#">Create Account</a>
+
             </p>
 
         </form>
+
     </div>
 
-    <!-- Feedback Section -->
+    <!-- FEEDBACK SECTION -->
+
     <div class="feedback-panel">
 
-        <h2>Feedback</h2>
-        <p>We value your feedback. Please share your experience with us.</p>
+        <div class="feedback-header">
+
+            <h2>Feedback Form</h2>
+
+            <p>We value your feedback!</p>
+
+        </div>
 
         <form class="feedback-form">
 
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" placeholder="Enter your name" required>
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    required>
+
             </div>
 
             <div class="form-group">
+
                 <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required>
+
             </div>
 
             <div class="form-group">
-                <label>Your Feedback</label>
-                <textarea placeholder="Write your feedback here..." required></textarea>
+
+                <label>Rate Our Website</label>
+
+                <select>
+
+                    <option>⭐⭐⭐⭐⭐ Excellent</option>
+                    <option>⭐⭐⭐⭐ Good</option>
+                    <option>⭐⭐⭐ Average</option>
+                    <option>⭐⭐ Poor</option>
+                    <option>⭐ Very Poor</option>
+
+                </select>
+
             </div>
 
-            <button class="feedback-button">
+            <div class="form-group">
+
+                <label>Your Feedback</label>
+
+                <textarea
+                    rows="5"
+                    placeholder="Write your feedback here..."
+                    required></textarea>
+
+            </div>
+
+            <button class="btn login-btn">
+
                 Submit Feedback
+
             </button>
 
         </form>
 
     </div>
+
+    <footer>
+
+        © 2026 Login Portal | Designed by Pavan Teja
+
+    </footer>
 
 </body>
 </html>
